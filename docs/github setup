@@ -1,0 +1,23 @@
+#Check if you have git installed
+git --version
+
+#Check where is root folder of installed git
+which git    // old = /usr/bin/git      new (after installation) = /usr/local/bin/git
+
+#Install git
+brew install git
+
+#Clear cache
+hash -r
+
+#Link git with latest installed version
+brew link git     // link - unlink
+
+#List all git configuration with file location
+git config --list --show-origin
+
+#List only global configuration
+git config --global --list
+
+#List only system configuration
+git config --system --list --show-origin
