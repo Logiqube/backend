@@ -9,4 +9,8 @@
     <name>ABC Project</name>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>app-server</module>
+    </modules>
+
 </project>
