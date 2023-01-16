@@ -1,0 +1,39 @@
+1) git submodule add git@git-kovac:Logiqube/api-spec.git api-spec
+2) git submodule init
+3) git submodule update
+
+
+#
+To configure a Git submodule, you can follow these steps:
+
+In the root directory of your main project, use the git submodule add command to add the repository where your YAML files are stored as a submodule. The command should be in the format git submodule add https://github.com/<username>/<repo-name> <local-directory>, where https://github.com/<username>/<repo-name> is the URL of the repository where your YAML files are stored, and <local-directory> is the directory where the submodule should be cloned in your main project. For example: git submodule add https://github.com/myusername/openapi-spec openapi-spec
+
+After adding the submodule, you will need to initialize and update it by running the command git submodule init and git submodule update. These commands will clone the submodule repository to the specified local directory and checkout the latest version of the submodule.
+
+Once the submodule is initialized and updated, you can make changes to the YAML files in the submodule repository and commit them.
+
+When you want to include the changes in the main project, you need to commit the changes in the submodule and then commit the change in the main project.
+
+To update the submodule to the latest version, you can use the command git submodule update --remote <submodule-directory>
+
+It is important to note that when you clone a project that has submodules, you will need to run git submodule init and git submodule update in order to clone the submodules as well.
+
+Also, if you decide to remove the submodule, you will have to use the command git submodule deinit <submodule-directory> and then git rm <submodule-directory> and also remove the submodule from the .gitmodules file and commit the changes.
+
+
+
+#
+.gitmodules file example
+The .gitmodules file is a simple text file that contains the configuration for the Git submodules in your repository. The file is located in the root directory of your main project and contains information such as the URL of the submodule repository and the local directory where the submodule should be cloned.
+
+Here's an example of what a .gitmodules file might look like:
+
+Copy code
+[submodule "openapi-spec"]
+	path = openapi-spec
+	url = https://github.com/myusername/openapi-spec
+In this example, the .gitmodules file contains a single submodule configuration for a repository named "openapi-spec". The path property specifies the local directory where the submodule should be cloned, in this case "openapi-spec". The url property specifies the URL of the repository where the submodule is located, in this case "https://github.com/myusername/openapi-spec".
+
+
+
+
