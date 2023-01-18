@@ -1,0 +1,61 @@
+# OpenAPI setup steps
+
+1) Add required dependencies to pom.xml file
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.14</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>2.2.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.4</version>
+        </dependency>
+
+2) Add plugin to pom.xml file (name path to yaml file there)
+
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <!-- RELEASE_VERSION -->
+                <version>6.2.1</version>
+                <!-- /RELEASE_VERSION -->
+                <executions>
+                    <execution>
+                        <id>app-server</id>
+                        <!--    Maven command to generate files:  mvn openapi-generator:generate@app-server-->
+                        <configuration>
+                            <!-- path of .yaml file-->
+                            <inputSpec>
+                                ${project.basedir}/../api-spec/api.yaml
+                            </inputSpec>
+                            <generatorName>spring</generatorName>
+                            <apiPackage>com.logiqube.appserver.api</apiPackage>
+                            <modelPackage>com.logiqube.appserver.api.model</modelPackage>
+                            <supportingFilesToGenerate>
+                                ApiUtil.java
+                            </supportingFilesToGenerate>
+                            <output>${project.basedir}</output>
+                            <configOptions>
+                                <interfaceOnly>true</interfaceOnly>
+                                <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                                <!-- IMPORTANT if using SpringBoot version 3 as javax is switched to jakarta -->
+                                <useSpringBoot3>true</useSpringBoot3>
+                                <!--    <delegatePattern>true</delegatePattern> -->
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+3) maven clean install
+
+4) Run maven command to generate java classes
+
+    -   mvn openapi-generator:generate@app-server
