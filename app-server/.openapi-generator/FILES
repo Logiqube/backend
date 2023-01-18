@@ -1,2 +1,4 @@
 src/main/java/com/logiqube/appserver/api/ApiUtil.java
 src/main/java/com/logiqube/appserver/api/HealthApi.java
+src/main/java/com/logiqube/appserver/api/UsersApi.java
+src/main/java/com/logiqube/appserver/api/model/User.java
