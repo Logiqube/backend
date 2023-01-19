@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.NativeWebRequest;
 
+import java.util.List;
 import java.util.Optional;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
@@ -63,7 +64,7 @@ public interface UsersApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"last_name\" : \"\", \"id\" : \"\", \"first_name\" : \"\", \"email\" : \"\", \"username\" : \"\" }";
+                    String exampleString = "{ \"last_name\" : \"last_name\", \"id\" : 0, \"first_name\" : \"first_name\", \"email\" : \"email\", \"username\" : \"username\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -93,7 +94,7 @@ public interface UsersApi {
         value = "/users/{userId}"
     )
     default ResponseEntity<Void> deleteUser(
-        @Parameter(name = "userId", description = "", required = true) @PathVariable("userId") Object userId
+        @Parameter(name = "userId", description = "", required = true) @PathVariable("userId") Integer userId
     ) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
@@ -122,12 +123,12 @@ public interface UsersApi {
         produces = { "application/json" }
     )
     default ResponseEntity<User> getUser(
-        @Parameter(name = "userId", description = "", required = true) @PathVariable("userId") Object userId
+        @Parameter(name = "userId", description = "", required = true) @PathVariable("userId") Integer userId
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"last_name\" : \"\", \"id\" : \"\", \"first_name\" : \"\", \"email\" : \"\", \"username\" : \"\" }";
+                    String exampleString = "{ \"last_name\" : \"last_name\", \"id\" : 0, \"first_name\" : \"first_name\", \"email\" : \"email\", \"username\" : \"username\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -149,7 +150,7 @@ public interface UsersApi {
         tags = { "users" },
         responses = {
             @ApiResponse(responseCode = "200", description = "A list of users", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Object.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = User.class))
             })
         }
     )
@@ -158,9 +159,18 @@ public interface UsersApi {
         value = "/users",
         produces = { "application/json" }
     )
-    default ResponseEntity<Object> listUsers(
+    default ResponseEntity<List<User>> listUsers(
         
     ) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"last_name\" : \"last_name\", \"id\" : 0, \"first_name\" : \"first_name\", \"email\" : \"email\", \"username\" : \"username\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -190,13 +200,13 @@ public interface UsersApi {
         consumes = { "application/json" }
     )
     default ResponseEntity<User> updateUser(
-        @Parameter(name = "userId", description = "", required = true) @PathVariable("userId") Object userId,
+        @Parameter(name = "userId", description = "", required = true) @PathVariable("userId") Integer userId,
         @Parameter(name = "User", description = "", required = true) @Valid @RequestBody User user
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"last_name\" : \"\", \"id\" : \"\", \"first_name\" : \"\", \"email\" : \"\", \"username\" : \"\" }";
+                    String exampleString = "{ \"last_name\" : \"last_name\", \"id\" : 0, \"first_name\" : \"first_name\", \"email\" : \"email\", \"username\" : \"username\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

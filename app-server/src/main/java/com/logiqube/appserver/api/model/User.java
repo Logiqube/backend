@@ -3,9 +3,7 @@ package com.logiqube.appserver.api.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -16,112 +14,112 @@ import java.util.Objects;
 public class User {
 
   @JsonProperty("id")
-  private JsonNullable<Object> id = JsonNullable.undefined();
+  private Long id;
 
   @JsonProperty("username")
-  private JsonNullable<Object> username = JsonNullable.undefined();
+  private String username;
 
   @JsonProperty("email")
-  private JsonNullable<Object> email = JsonNullable.undefined();
+  private String email;
 
   @JsonProperty("first_name")
-  private JsonNullable<Object> firstName = JsonNullable.undefined();
+  private String firstName;
 
   @JsonProperty("last_name")
-  private JsonNullable<Object> lastName = JsonNullable.undefined();
+  private String lastName;
 
-  public User id(Object id) {
-    this.id = JsonNullable.of(id);
+  public User id(Long id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Get id
+   * Id of user - auto generated
    * @return id
   */
   
-  @Schema(name = "id", required = false)
-  public JsonNullable<Object> getId() {
+  @Schema(name = "id", description = "Id of user - auto generated", required = false)
+  public Long getId() {
     return id;
   }
 
-  public void setId(JsonNullable<Object> id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
-  public User username(Object username) {
-    this.username = JsonNullable.of(username);
+  public User username(String username) {
+    this.username = username;
     return this;
   }
 
   /**
-   * Get username
+   * Username
    * @return username
   */
   
-  @Schema(name = "username", required = false)
-  public JsonNullable<Object> getUsername() {
+  @Schema(name = "username", description = "Username", required = false)
+  public String getUsername() {
     return username;
   }
 
-  public void setUsername(JsonNullable<Object> username) {
+  public void setUsername(String username) {
     this.username = username;
   }
 
-  public User email(Object email) {
-    this.email = JsonNullable.of(email);
+  public User email(String email) {
+    this.email = email;
     return this;
   }
 
   /**
-   * Get email
+   * User email
    * @return email
   */
   
-  @Schema(name = "email", required = false)
-  public JsonNullable<Object> getEmail() {
+  @Schema(name = "email", description = "User email", required = false)
+  public String getEmail() {
     return email;
   }
 
-  public void setEmail(JsonNullable<Object> email) {
+  public void setEmail(String email) {
     this.email = email;
   }
 
-  public User firstName(Object firstName) {
-    this.firstName = JsonNullable.of(firstName);
+  public User firstName(String firstName) {
+    this.firstName = firstName;
     return this;
   }
 
   /**
-   * Get firstName
+   * User first name
    * @return firstName
   */
   
-  @Schema(name = "first_name", required = false)
-  public JsonNullable<Object> getFirstName() {
+  @Schema(name = "first_name", description = "User first name", required = false)
+  public String getFirstName() {
     return firstName;
   }
 
-  public void setFirstName(JsonNullable<Object> firstName) {
+  public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
-  public User lastName(Object lastName) {
-    this.lastName = JsonNullable.of(lastName);
+  public User lastName(String lastName) {
+    this.lastName = lastName;
     return this;
   }
 
   /**
-   * Get lastName
+   * User last name
    * @return lastName
   */
   
-  @Schema(name = "last_name", required = false)
-  public JsonNullable<Object> getLastName() {
+  @Schema(name = "last_name", description = "User last name", required = false)
+  public String getLastName() {
     return lastName;
   }
 
-  public void setLastName(JsonNullable<Object> lastName) {
+  public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
@@ -134,27 +132,16 @@ public class User {
       return false;
     }
     User user = (User) o;
-    return equalsNullable(this.id, user.id) &&
-        equalsNullable(this.username, user.username) &&
-        equalsNullable(this.email, user.email) &&
-        equalsNullable(this.firstName, user.firstName) &&
-        equalsNullable(this.lastName, user.lastName);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.id, user.id) &&
+        Objects.equals(this.username, user.username) &&
+        Objects.equals(this.email, user.email) &&
+        Objects.equals(this.firstName, user.firstName) &&
+        Objects.equals(this.lastName, user.lastName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(username), hashCodeNullable(email), hashCodeNullable(firstName), hashCodeNullable(lastName));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, username, email, firstName, lastName);
   }
 
   @Override
