@@ -1,0 +1,12 @@
+#Creating Docker image
+
+1) Create a Dockerfile in the root of your Spring Boot project. This file will contain the instructions for building the Docker image.
+
+2) Build the image by running this command
+    -   docker build -t your-image-name .
+
+3) Verify that the image is created by running
+    -   docker images
+
+4) Run your image by running  (Where the first 8080 is the local port and the second 8080 is the container port)
+    -   docker run -p 8080:8080 your-image-name
